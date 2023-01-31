@@ -36,5 +36,18 @@ while not os.path.exists(arquivo):
 arquivo_destino = os.path.join(diretorio_pintec, "pintec2017_cnae_20201221 (4).xls")
 os.rename(arquivo, arquivo_destino)
 
+import os
+
+def renomear_arquivo(nome_antigo, nome_novo):
+    contador = 0
+    nome_novo_completo = nome_novo
+    while os.path.exists(nome_novo_completo):
+        contador += 1
+        nome_novo_completo = f"{nome_novo} ({contador})"
+    
+    os.rename(nome_antigo, nome_novo_completo)
+
+# Renomear arquivo
+renomear_arquivo("arquivo_antigo.txt", "arquivo_novo.txt")
 
 
