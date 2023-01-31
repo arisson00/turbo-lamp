@@ -1,0 +1,29 @@
+from selenium import webdriver
+import os 
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service 
+
+
+
+servico = Service(ChromeDriverManager().install())
+
+
+navegador = webdriver.Chrome(service=servico)
+
+#fazendo a requisição da url
+navegador.get('https://www.ibge.gov.br/estatisticas/multidominio/ciencia-tecnologia-e-inovacao/9141-pesquisa-de-inovacao.html?=&t=downloads')
+#obtendo os caminhos xml(xpath)
+navegador.find_element('xpath','//*[@id="Industrias_Extrativas_e_de_Transformacao/Pesquisa_de_Inovacao_Tecnologica/2017"]/i').click()
+navegador.find_element('xpath','/html/body/main/section/div[2]/div/div/section/div[8]/div/div[1]/ul/li/ul/li[7]/ul/li[2]/div').click()
+navegador.implicitly_wait(0.5)
+navegador.find_element('xpath','//*[@id="j1_39_anchor"]').click()
+
+# Criar o diretório na área de trabalho
+diretorio_desktop = os.path.expanduser("~Área de Trabalho")
+diretorio_pintec = os.path.join(diretorio_desktop, "PINTE")
+os.mkdir(diretorio_pintec)
+
+# Salvar o arquivo automaticamente
+arquivo_destino = os.path.join("PINTE", "pintec2017_cnae_20201221 (12).xls")
+
+
