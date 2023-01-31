@@ -22,7 +22,7 @@ navegador.implicitly_wait(1)
 navegador.find_element('xpath','//*[@id="j1_39_anchor"]').click()
 
 # Criar o diretório na área de trabalho
-#diretorio_desktop = os.path.expanduser("~")
+#diretorio_desktop = os.path.expanduser("~\Desktop")
 #diretorio_pintec = os.path.join(diretorio_desktop, "PINTE")
 #os.mkdir(diretorio_pintec)
 
